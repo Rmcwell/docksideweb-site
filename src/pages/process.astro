@@ -19,163 +19,161 @@ interface Step {
   title: string;
   desc: string;
   details: string[];
-  iconBg: string;
-  iconGlow: string;
-  borderColor: string;
-  boxBg: string;
 }
 
 const steps: Step[] = [
-{
-  number: '01',
-  icon: Search,
-  title: 'Discovery & Planning',
-  desc: "We start with a conversation about your business, your customers, and what you want the website to achieve. Then we turn that into a clear plan, so you know what’s happening and what to expect.",
-  details: [
-    'Kickoff Call',
-    'Goals & Priorities',
-    'Content & Page Planning',
-    'Project Timeline',
-  ],
-  iconBg: 'bg-[var(--color-teal)]',
-  iconGlow: 'bg-[var(--color-teal)]/20',
-  borderColor: 'border-[var(--color-teal)]',
-  boxBg: 'bg-[var(--color-teal)]/[0.05]',
-},
-{
-  number: '02',
-  icon: Palette,
-  title: 'Design & Structure',
-  desc: "Next, we design how your site will look and map out how people will move through it. You’ll see a preview before anything is finalized, so we can make sure it feels like your brand.",
-  details: [
-    'Look & Feel (Brand Styling)',
-    'Page Layouts',
-    'Navigation & Site Map',
-    'Clickable Preview',
-  ],
-  iconBg: 'bg-[var(--color-navy)]',
-  iconGlow: 'bg-[var(--color-navy)]/20',
-  borderColor: 'border-[var(--color-navy)]',
-  boxBg: 'bg-[var(--color-navy)]/[0.05]',
-},
-{
-  number: '03',
-  icon: Code2,
-  title: 'Build',
-  desc: "Once the design is approved, we build your website and share progress updates along the way to get your feedback at key points.",
-  details: [
-    'Website Build',
-    'Contact Form Integration',
-    'Progress Updates',
-    'Review Checkpoints',
-  ],
-  iconBg: 'bg-[var(--color-teal)]',
-  iconGlow: 'bg-[var(--color-teal)]/20',
-  borderColor: 'border-[var(--color-teal)]',
-  boxBg: 'bg-[var(--color-teal)]/[0.05]',
-},
-{
-  number: '04',
-  icon: Rocket,
-  title: 'Review & Launch',
-  desc: "Before we launch, we review everything to make sure it looks great and works smoothly on phones, tablets, and computers. Then we publish the site and confirm everything is running properly.",
-  details: [
-    'Final Review',
-    'Mobile & Browser Checks',
-    'Speed & Cleanup',
-    'Go Live',
-  ],
-  iconBg: 'bg-[var(--color-navy)]',
-  iconGlow: 'bg-[var(--color-navy)]/20',
-  borderColor: 'border-[var(--color-navy)]',
-  boxBg: 'bg-[var(--color-navy)]/[0.05]',
-},
-{
-  number: '05',
-  icon: Headphones,
-  title: 'Support & Improvements',
-  desc: "After launch, we keep your site healthy and up-to-date with ongoing support and updates.",
-  details: [
-    'Unlimited Minor Updates',
-    'Ongoing Help',
-    'Monthly Check-Ins',
-    'Simple Reporting'
-
-  ],
-  iconBg: 'bg-[var(--color-teal)]',
-  iconGlow: 'bg-[var(--color-teal)]/20',
-  borderColor: 'border-[var(--color-teal)]',
-  boxBg: 'bg-[var(--color-teal)]/[0.05]',
-},
+  {
+    number: '01',
+    icon: Search,
+    title: 'Discovery & Planning',
+    desc: "We start with a conversation about your business, your customers, and what you want the website to achieve. Then we turn that into a clear plan, so you know what's happening and what to expect.",
+    details: ['Kickoff Call', 'Goals & Priorities', 'Content & Page Planning', 'Project Timeline'],
+  },
+  {
+    number: '02',
+    icon: Palette,
+    title: 'Design & Structure',
+    desc: "Next, we design how your site will look and map out how people will move through it. You'll see a preview before anything is finalized, so we can make sure it feels like your brand.",
+    details: ['Look & Feel (Brand Styling)', 'Page Layouts', 'Navigation & Site Map', 'Clickable Preview'],
+  },
+  {
+    number: '03',
+    icon: Code2,
+    title: 'Build',
+    desc: "Once the design is approved, we build your website and share progress updates along the way to get your feedback at key points.",
+    details: ['Website Build', 'Contact Form Integration', 'Progress Updates', 'Review Checkpoints'],
+  },
+  {
+    number: '04',
+    icon: Rocket,
+    title: 'Review & Launch',
+    desc: "Before we launch, we review everything to make sure it looks great and works smoothly on phones, tablets, and computers. Then we publish the site and confirm everything is running properly.",
+    details: ['Final Review', 'Mobile & Browser Checks', 'Speed & Cleanup', 'Go Live'],
+  },
+  {
+    number: '05',
+    icon: Headphones,
+    title: 'Support & Improvements',
+    desc: "After launch, we keep your site healthy and up-to-date with ongoing support and updates.",
+    details: ['Unlimited Minor Updates', 'Ongoing Help', 'Monthly Check-Ins', 'Simple Reporting'],
+  },
 ];
+
+function getStepColors(index: number) {
+  const isTeal = index % 2 === 0;
+  return {
+    iconBg: isTeal ? 'bg-[var(--color-teal)]' : 'bg-[var(--color-navy)]',
+    iconGlow: isTeal ? 'bg-[var(--color-teal)]/20' : 'bg-[var(--color-navy)]/20',
+    borderColor: isTeal ? 'border-[var(--color-teal)]' : 'border-[var(--color-navy)]',
+    boxBg: isTeal ? 'bg-[var(--color-teal)]/[0.05]' : 'bg-[var(--color-navy)]/[0.05]',
+  };
+}
 ---
 
 <Layout>
-
-  <HeroSecondary 
-    label="Our Process" 
-    heading="From Concept to Launch" 
-    description="You’ll always know what we’re working on, what’s coming next, and when things will be ready. We keep it simple, stay in touch, and build a site that fits your budget and your timeline." 
+  <HeroSecondary
+    label="Our Process"
+    heading="From Concept to Launch"
+    description="You'll always know what we're working on, what's coming next, and when things will be ready. We keep it simple, stay in touch, and build a site that fits your budget and your timeline."
   />
 
   <!-- Process Steps -->
   <Section bg="light">
     <div class="max-w-6xl mx-auto">
-      <div class="space-y-24">
-        {steps.map((step, index) => (
-          <div class="relative animate-on-scroll" data-delay={index * 100}>
-            <div class={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-cols-[1fr_auto]' : 'lg:grid-cols-[auto_1fr]'}`}>
-              <!-- Step Number & Icon -->
-              <div class={`flex items-center justify-center lg:justify-start ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                <div class="relative">
-                  <div class={`absolute inset-0 ${step.iconGlow} rounded-3xl blur-xl opacity-50`}></div>
-                  <div class={`relative bg-white rounded-3xl p-12 shadow-xl border-4 ${step.borderColor}`}>
-                    <div class={`w-28 h-28 ${step.iconBg} rounded-2xl flex items-center justify-center mx-auto shadow-lg`}>
-                      <step.icon class="h-14 w-14 text-white" />
+      <div class="space-y-16 lg:space-y-24">
+        {steps.map((step, index) => {
+          const colors = getStepColors(index);
+          return (
+            <div class="relative animate-on-scroll" data-delay={index * 100}>
+
+              <!-- MOBILE/TABLET LAYOUT (hidden on lg+) -->
+              <div class="lg:hidden">
+                <!-- Step header: small icon + number badge + title inline -->
+                <div class="flex items-center gap-4 mb-5">
+                  <div class="relative shrink-0">
+                    <div class={`w-14 h-14 ${colors.iconBg} rounded-xl flex items-center justify-center shadow-md`}>
+                      <step.icon class="h-7 w-7 text-white" />
                     </div>
-                    <div class="absolute -top-3 -right-3 w-16 h-16 bg-gold rounded-full flex items-center justify-center text-white font-black text-2xl shadow-lg border-4 border-white">
+                    <div class="absolute -top-2 -right-2 w-6 h-6 bg-[var(--color-gold)] rounded-full flex items-center justify-center text-white font-black text-xs shadow border-2 border-white">
                       {step.number}
                     </div>
                   </div>
+                  <h3 class="text-xl font-bold text-[var(--color-navy)] leading-tight">
+                    {step.title}
+                  </h3>
                 </div>
-              </div>
 
-              <!-- Content -->
-              <div class={index % 2 === 1 ? 'lg:order-1 lg:text-right' : ''}>
-                <h3 class="text-3xl font-bold text-[var(--color-navy)] mb-4">
-                  {step.title}
-                </h3>
-                <p class="text-slate-600 text-lg mb-8 leading-relaxed">
+                <!-- Description -->
+                <p class="text-slate-600 text-base mb-5 leading-relaxed">
                   {step.desc}
                 </p>
 
-                <div class={`p-6 rounded-xl border-2 ${step.borderColor} ${step.boxBg}`}>
-                  <h4 class="font-bold text-[var(--color-navy)] mb-4 flex items-center gap-2">
-                    What's Included:
-                  </h4>
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <!-- Details box -->
+                <div class={`p-5 rounded-xl border-2 ${colors.borderColor} ${colors.boxBg}`}>
+                  <h4 class="font-bold text-[var(--color-navy)] mb-3 text-sm">What's Included:</h4>
+                  <div class="grid grid-cols-2 gap-2">
                     {step.details.map((detail) => (
-                      <div class="flex items-center space-x-2 text-slate-700">
-                        <div class={`w-2 h-2 ${step.iconBg} rounded-full`}></div>
+                      <div class="flex items-center gap-2 text-slate-700">
+                        <div class={`w-1.5 h-1.5 shrink-0 ${colors.iconBg} rounded-full`}></div>
                         <span class="text-sm font-medium">{detail}</span>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Connecting Arrow with Gold -->
-            {index < steps.length - 1 && (
-              <div class="hidden lg:block absolute left-1/2 -bottom-12 transform -translate-x-1/2">
-                <ArrowRight class="h-8 w-8 text-[var(--color-gold)] rotate-90 drop-shadow-lg" />
+              <!-- DESKTOP LAYOUT (hidden below lg) — restore original column sizing -->
+                <div class={`hidden lg:grid gap-12 items-center ${index % 2 === 1 ? 'lg:grid-cols-[1fr_auto]' : 'lg:grid-cols-[auto_1fr]'}`}>
+                <!-- Step Number & Icon -->
+                <div class={`flex items-center justify-center lg:justify-start ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                  <div class="relative">
+                    <div class={`absolute inset-0 ${colors.iconGlow} rounded-3xl blur-xl opacity-50`}></div>
+                    <div class={`relative bg-white rounded-3xl p-12 shadow-xl border-4 ${colors.borderColor}`}>
+                      <div class={`w-28 h-28 ${colors.iconBg} rounded-2xl flex items-center justify-center mx-auto shadow-lg`}>
+                        <step.icon class="h-14 w-14 text-white" />
+                      </div>
+                      <div class="absolute -top-3 -right-3 w-16 h-16 bg-[var(--color-gold)] rounded-full flex items-center justify-center text-white font-black text-2xl shadow-lg border-4 border-white">
+                        {step.number}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Content -->
+                <div class={index % 2 === 1 ? 'lg:order-1 lg:text-right' : ''}>
+                  <h3 class="text-3xl font-bold text-[var(--color-navy)] mb-4">
+                    {step.title}
+                  </h3>
+                  <p class="text-slate-600 text-lg mb-8 leading-relaxed">
+                    {step.desc}
+                  </p>
+                  <div class={`p-6 rounded-xl border-2 ${colors.borderColor} ${colors.boxBg}`}>
+                    <h4 class="font-bold text-[var(--color-navy)] mb-4">What's Included:</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {step.details.map((detail) => (
+                        <div class="flex items-center space-x-2 text-slate-700">
+                          <div class={`w-2 h-2 ${colors.iconBg} rounded-full`}></div>
+                          <span class="text-sm font-medium">{detail}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
-            )}
-          </div>
-        ))}
+
+              <!-- Connecting Arrow -->
+              {index < steps.length - 1 && (
+                <div class="hidden lg:block absolute left-1/2 -bottom-12 transform -translate-x-1/2">
+                  <ArrowRight class="h-8 w-8 text-[var(--color-gold)] rotate-90 drop-shadow-lg" />
+                </div>
+              )}
+
+            </div>
+          );
+        })}
       </div>
     </div>
   </Section>
-  
+
   <CTAAboveFooter />
 </Layout>

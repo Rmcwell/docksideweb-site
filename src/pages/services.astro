@@ -37,7 +37,7 @@ const services: ServiceFeature[] = [
       "Fast load times",
       "SEO basics set up the right way",
       "Clean page structure",
-      "Simple traffic reports (so you know what’s working)",
+      "Simple traffic reports (so you know what's working)",
     ],
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
@@ -45,7 +45,7 @@ const services: ServiceFeature[] = [
   {
     title: "Website Care & Support",
     description:
-      "We keep your website updated and running smoothly, and we’re here when you need changes.",
+      "We keep your website updated and running smoothly, and we're here when you need changes.",
     features: [
       "Security and maintenance updates",
       "Edits when you need them",
@@ -60,10 +60,10 @@ const services: ServiceFeature[] = [
 
 <Layout>
 
-  <HeroSecondary 
-    label="Our Services" 
-    heading="Full-Service Web Solutions" 
-    description="From your first idea to launch day (and beyond), we take care of your website so you don’t have to." 
+  <HeroSecondary
+    label="Our Services"
+    heading="Full-Service Web Solutions"
+    description="From your first idea to launch day (and beyond), we take care of your website so you don't have to."
   />
 
   <Section>
@@ -82,7 +82,7 @@ const services: ServiceFeature[] = [
                 {service.description}
               </p>
 
-              <!-- Bullet box (subtle background + border) -->
+              <!-- Bullet box -->
               <div class="rounded-xl bg-white border border-slate-200 p-5">
                 <ul class="space-y-3">
                   {service.features.map((feature) => (
@@ -100,7 +100,7 @@ const services: ServiceFeature[] = [
                 <img
                   src={service.image}
                   alt={service.title}
-                  class="w-full h-full object-cover aspect-[4/3]"
+                  class="w-full object-cover aspect-[4/3] max-h-56 sm:max-h-72 lg:max-h-none"
                 />
               </div>
             </div>
@@ -124,9 +124,7 @@ const services: ServiceFeature[] = [
     <div class="grid md:grid-cols-3 gap-8">
       <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
         <div class="text-4xl font-bold text-teal mb-2">3-4</div>
-        <div
-          class="text-sm font-semibold text-navy uppercase tracking-wide mb-2"
-        >
+        <div class="text-sm font-semibold text-navy uppercase tracking-wide mb-2">
           Weeks
         </div>
         <p class="text-slate-600">
@@ -136,9 +134,7 @@ const services: ServiceFeature[] = [
 
       <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
         <div class="text-4xl font-bold text-teal mb-2">98+</div>
-        <div
-          class="text-sm font-semibold text-navy uppercase tracking-wide mb-2"
-        >
+        <div class="text-sm font-semibold text-navy uppercase tracking-wide mb-2">
           PageSpeed
         </div>
         <p class="text-slate-600">
@@ -148,9 +144,7 @@ const services: ServiceFeature[] = [
 
       <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
         <div class="text-4xl font-bold text-teal mb-2">100%</div>
-        <div
-          class="text-sm font-semibold text-navy uppercase tracking-wide mb-2"
-        >
+        <div class="text-sm font-semibold text-navy uppercase tracking-wide mb-2">
           Hand-Coded
         </div>
         <p class="text-slate-600">
