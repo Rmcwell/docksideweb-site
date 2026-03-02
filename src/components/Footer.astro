@@ -1,5 +1,7 @@
 ---
-import { Anchor, Mail, Phone, MapPin } from "lucide-astro";
+import Logo from "../assets/logo/logo-vertical-light.svg";
+import Button from "./ui/Button.astro";
+import { Mail, Phone, MapPin } from "lucide-astro";
 
 const currentYear = new Date().getFullYear();
 
@@ -14,7 +16,7 @@ const serviceLinks = [
 <div class="w-full bg-white">
   <div class="relative w-full overflow-hidden bg-slate-50">
     <svg
-      class="relative block w-full h-[100px] md:h-[200px]"
+      class="relative block w-full h-25 md:h-50"
       style="z-index: 1"
       viewBox="0 0 1440 320"
       preserveAspectRatio="xMidYMid slice"
@@ -54,22 +56,18 @@ const serviceLinks = [
   </div>
 
   <footer
-    class="relative bg-gradient-to-b from-[#1e3556] to-[#1A304d] text-white pb-8 -mt-1"
+    class="relative bg-linear-to-b from-[#1e3556] to-[#1A304d] text-white pb-8 -mt-1"
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
         <div class="space-y-4">
-          <div class="flex items-center space-x-2">
-            <Anchor class="h-6 w-6 text-gold" />
-            <span
-              class="text-xl font-heading font-bold text-white tracking-wide"
-            >
-              <span class="text-teal-400">DOCKSIDE </span>WEB
-            </span>
-          </div>
+          <a href="/" class="flex items-center space-x-2">
+            <Logo class="h-30 w-auto" aria-label="Dockside Web Solutions Logo" />
+          </a>
           <p class="text-slate-400 text-sm leading-relaxed">
             Fast, modern websites for small businesses
           </p>
+          <Button variant="primary" size="sm">Get Started Today</Button>
         </div>
 
         <div>

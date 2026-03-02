@@ -1,150 +1,102 @@
 ---
-import { Anchor } from "lucide-astro";
 import Button from "./ui/Button.astro";
+import Logo from "../assets/logo/logo-horizontal-light.svg";
 
 const rawPath = Astro.url.pathname;
 const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
 
 const navLinks = [
   { name: "Home", path: "/" },
-  { name: "Pricing", path: "/pricing" },
   { name: "Services", path: "/services" },
+  { name: "Pricing", path: "/pricing" },
   { name: "Process", path: "/process" },
   { name: "Contact", path: "/contact" },
 ];
 ---
 
-<header
-  id="main-header"
-  class="fixed w-full z-50 transition-all duration-300 bg-navy py-5"
->
+<header id="main-header" class="fixed w-full z-50 transition-all duration-500 bg-navy py-4">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center">
-      <!-- Logo -->
-      <a href="/" class="flex items-center space-x-2 group">
-        <div
-          class="p-2 bg-gold/10 rounded-full border border-gold/30 group-hover:border-gold transition-colors"
-        >
-          <Anchor class="h-6 w-6 text-gold" />
-        </div>
-        <span class="text-xl font-heading font-bold text-white tracking-wide">
-          <span class="text-teal">DOCKSIDE </span>WEB SOLUTIONS
-        </span>
+      <a href="/" class="flex items-center group">
+        <Logo 
+          class="h-12 md:h-16 w-auto transition-all duration-300 group-hover:opacity-90" 
+          aria-label="Dockside Web Solutions Logo" 
+        />
       </a>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center space-x-8">
+      <nav class="hidden md:flex items-center space-x-10">
         {
           navLinks.map((link) => (
-            <a
-              href={link.path}
-              class={`text-sm font-medium transition-colors hover:text-gold ${
-                currentPath === link.path ? "text-gold" : "text-slate-300"
-              }`}
+            <a href={link.path} class={`text-sm font-semibold tracking-wide uppercase transition-colors hover:text-gold ${currentPath === link.path ? "text-gold" : "text-slate-200"}`}
             >
               {link.name}
             </a>
           ))
         }
         <a href="/contact">
-          <Button variant="primary" size="sm">Get Started</Button>
+          <Button variant="primary" size="sm" class="shadow-md hover:shadow-gold/20">
+            Get Started
+          </Button>
         </a>
       </nav>
 
-      <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-button"
-        class="md:hidden text-white p-2"
+        class="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
         aria-label="Toggle menu"
         aria-expanded="false"
       >
-        <svg
-          id="menu-icon"
-          class="h-6 w-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"></path>
+        <svg id="menu-icon" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
-        <svg
-          id="close-icon"
-          class="h-6 w-6 hidden"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"></path>
+        <svg id="close-icon" class="h-6 w-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
     </div>
   </div>
 
-  <!-- Mobile Navigation -->
   <div
     id="mobile-menu"
-    class="md:hidden absolute top-full left-0 w-full bg-navy border-t border-white/10 shadow-xl hidden"
+    class="md:hidden absolute top-full left-0 w-full bg-navy/98 backdrop-blur-xl border-t border-white/5 shadow-2xl hidden"
   >
-    <div class="px-4 py-6 space-y-4">
+    <div class="px-6 py-8 space-y-6">
       {
         navLinks.map((link) => (
           <a
             href={link.path}
-            class={`block text-base font-medium ${
-              currentPath === link.path ? "text-gold" : "text-slate-300"
+            class={`block text-lg font-medium tracking-tight ${
+              currentPath === link.path ? "text-gold" : "text-slate-200"
             }`}
           >
             {link.name}
           </a>
         ))
       }
-      <a href="/contact" class="block pt-4">
-        <Button variant="primary" class="w-full">Get Started</Button>
+      <a href="/contact" class="block pt-2">
+        <Button variant="primary" class="w-full py-4 text-base">Get Started</Button>
       </a>
     </div>
   </div>
 
-  <!-- Horizon Line -->
-  <div
-    class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gold/30 to-transparent"
-  >
-  </div>
+  <div class="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-gold/20 to-transparent"></div>
 </header>
 
 <script>
-  // Handle scroll effect
   function handleScroll() {
     const header = document.getElementById("main-header");
     if (!header) return;
 
-    if (window.scrollY > 20) {
-      header.classList.add(
-        "bg-navy/95",
-        "backdrop-blur-md",
-        "shadow-lg",
-        "py-3",
-      );
-      header.classList.remove("py-5");
+    // Use a slightly larger scroll threshold for a smoother "docking" feel
+    if (window.scrollY > 50) {
+      header.classList.add("bg-navy/95", "backdrop-blur-md", "shadow-xl", "py-3");
+      header.classList.remove("py-6");
     } else {
-      header.classList.remove(
-        "bg-navy/95",
-        "backdrop-blur-md",
-        "shadow-lg",
-        "py-3",
-      );
-      header.classList.add("py-5");
+      header.classList.remove("bg-navy/95", "backdrop-blur-md", "shadow-xl", "py-3");
+      header.classList.add("py-6");
     }
   }
 
-  // Handle mobile menu toggle
   function setupMobileMenu() {
     const menuButton = document.getElementById("mobile-menu-button");
     const mobileMenu = document.getElementById("mobile-menu");
@@ -153,45 +105,34 @@ const navLinks = [
 
     if (!menuButton || !mobileMenu || !menuIcon || !closeIcon) return;
 
-    menuButton.addEventListener("click", () => {
-      const isOpen = !mobileMenu.classList.contains("hidden");
-
-      if (isOpen) {
-        mobileMenu.classList.add("hidden");
-        menuIcon.classList.remove("hidden");
-        closeIcon.classList.add("hidden");
-        menuButton.setAttribute("aria-expanded", "false");
-      } else {
-        mobileMenu.classList.remove("hidden");
-        menuIcon.classList.add("hidden");
-        closeIcon.classList.remove("hidden");
-        menuButton.setAttribute("aria-expanded", "true");
-      }
-    });
+    menuButton.onclick = () => {
+      const isHidden = mobileMenu.classList.toggle("hidden");
+      menuIcon.classList.toggle("hidden", !isHidden);
+      closeIcon.classList.toggle("hidden", isHidden);
+      menuButton.setAttribute("aria-expanded", String(!isHidden));
+      
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = isHidden ? "" : "hidden";
+    };
 
     // Close menu when clicking outside
     document.addEventListener("click", (e) => {
-      if (
-        !menuButton.contains(e.target as Node) &&
-        !mobileMenu.contains(e.target as Node)
-      ) {
+      if (!menuButton.contains(e.target as Node) && !mobileMenu.contains(e.target as Node)) {
         mobileMenu.classList.add("hidden");
         menuIcon.classList.remove("hidden");
         closeIcon.classList.add("hidden");
-        menuButton.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
       }
     });
   }
 
-  // Initialize on page load
+  // Initializations
   handleScroll();
   setupMobileMenu();
-  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", handleScroll, { passive: true });
 
-  // Re-initialize after page transitions (for Astro view transitions)
   document.addEventListener("astro:page-load", () => {
     handleScroll();
     setupMobileMenu();
-    window.addEventListener("scroll", handleScroll);
   });
 </script>

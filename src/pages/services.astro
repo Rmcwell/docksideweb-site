@@ -87,7 +87,7 @@ const services: ServiceFeature[] = [
                 <ul class="space-y-3">
                   {service.features.map((feature) => (
                     <li class="flex items-start gap-3">
-                      <Check class="h-5 w-5 text-teal flex-shrink-0 mt-0.5" />
+                      <Check class="h-5 w-5 text-teal shrink-0 mt-0.5" />
                       <span class="text-slate-700">{feature}</span>
                     </li>
                   ))}
@@ -100,7 +100,7 @@ const services: ServiceFeature[] = [
                 <img
                   src={service.image}
                   alt={service.title}
-                  class="w-full object-cover aspect-[4/3] max-h-56 sm:max-h-72 lg:max-h-none"
+                  class="w-full object-cover aspect-4/3 max-h-56 sm:max-h-72 lg:max-h-none"
                 />
               </div>
             </div>
