@@ -4,5 +4,9 @@
 
   "html.format.wrapLineLength": 0,
   "html.format.wrapAttributes": "auto",
-  "html.format.endWithNewline": false
+  "html.format.endWithNewline": false,
+
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
 }
