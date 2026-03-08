@@ -11,7 +11,9 @@ import Button from "../components/ui/Button.astro";
     </div>
     <h3 class="text-2xl font-bold text-slate-900 mb-4">Message Sent!</h3>
     <p class="text-slate-600 mb-8">Thanks for reaching out. We'll be in touch shortly to discuss your project.</p>
-    <Button id="reset-button" class="px-6 py-2 border" variant="secondary">Send Another Message</Button>
+    <a href="/services">
+      <Button class="px-6 py-2 border" variant="secondary">View Our Services</Button>
+    </a>
   </div>
 
   <form id="contact-form" class="space-y-6">
@@ -55,7 +57,6 @@ import Button from "../components/ui/Button.astro";
   const form = document.getElementById("contact-form") as HTMLFormElement;
   const successContainer = document.getElementById("success-container");
   const submitButton = document.getElementById("submit-button") as HTMLButtonElement;
-  const resetButton = document.getElementById("reset-button");
 
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -81,13 +82,5 @@ import Button from "../components/ui/Button.astro";
       submitButton.disabled = false;
       submitButton.innerText = "Send Message";
     }
-  });
-
-  resetButton?.addEventListener("click", () => {
-    form.reset();
-    form.classList.remove("hidden");
-    successContainer?.classList.add("hidden");
-    submitButton.disabled = false;
-    submitButton.innerText = "Send Message";
   });
 </script>
