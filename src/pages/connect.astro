@@ -83,3 +83,51 @@ import {
 
     <CTAAboveFooter />
 </Layout>
+
+
+<style>
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+
+  .trust-indicator {
+    animation: fade-in-up 0.5s ease-out forwards;
+  }
+
+  .trust-indicator:nth-child(1) {
+    animation-delay: 0.5s;
+  }
+
+  .trust-indicator:nth-child(2) {
+    animation-delay: 0.6s;
+  }
+
+  .trust-indicator:nth-child(3) {
+    animation-delay: 0.7s;
+  }
+
+  .hero-section {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Default to scroll for safety */
+    background-attachment: scroll; 
+  }
+
+  @media (hover: hover) and (min-width: 1024px){
+  .hero-section {
+    background-attachment: fixed;
+  }
+}
+</style>
