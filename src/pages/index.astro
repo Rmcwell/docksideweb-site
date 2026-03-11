@@ -114,64 +114,62 @@ const processSteps = [
 
 <Layout>
   <!-- Hero Section -->
-  <section class="hero-section relative bg-navy min-h-[75vh] flex items-center overflow-hidden pb-24"
-           style={`background-image: url(${marinaImage.src});`} >
-
+  <section class="hero-section relative bg-navy min-h-[75vh] flex items-center overflow-hidden pb-24 bg-cover bg-center bg-no-repeat bg-scroll lg:bg-fixed"
+            style={`background-image: url(${marinaImage.src});`}>
+            
     <!-- Subtle Pattern Overlay -->
     <div class="absolute inset-0 bg-navy/85"></div>
     <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20">
-      <div class="max-w-3xl">
+      <div class="max-w-3xl mx-auto lg:mx-0 text-center lg:text-left">
         <div class="animate-fade-in-up">
-          <div class="flex items-center space-x-2 mb-6">
+          <div class="flex items-center justify-center lg:justify-start space-x-2 mb-6">
             <div class="h-0.5 w-12 bg-gold"></div>
-            <span
-              class="text-gold font-medium uppercase tracking-widest text-sm"
-            >
+            <span class="text-gold font-medium uppercase tracking-widest text-sm">
               CHART YOUR COURSE
             </span>
           </div>
           <h1
             class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white leading-tight mb-6"
           >
-            Custom Websites Built <br />
+            Custom Websites Built
             for Small Businesses
           </h1>
-          <p class="text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl">
+          <p class="text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
             Built to load fast, show up on Google, and make it easy for customers to contact you.
           </p>
-          <div class="flex flex-col sm:flex-row gap-4">
+          <div class="flex flex-col sm:flex-row gap-4 items-center lg:items-start justify-center lg:justify-start">
             <a href="/contact">
-              <Button variant="primary" size="lg"> Get Started </Button>
+              <Button variant="primary" size="lg" class="w-full sm:w-auto">
+                Get Started
+              </Button>
             </a>
             <a href="/pricing">
-              <Button
-                variant="outline"
-                size="lg"
-                class="text-white border-white"
-              >
+              <Button variant="outline" size="lg" class="w-full sm:w-auto text-white border-white">
                 See Pricing
               </Button>
             </a>
           </div>
-          <div class="flex flex-wrap gap-8 text-white/80 mt-6">
+          <div class="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-8 text-white/80 mt-6 items-center justify-center lg:justify-start">
             <div class="flex items-center space-x-2 trust-indicator opacity-0">
-              <CheckCircle class="w-5 h-5 text-gold" />
+              <CheckCircle class="w-5 h-5 text-gold shrink-0" />
               <span class="text-sm">Delivered in 3-4 weeks</span>
             </div>
             <div class="flex items-center space-x-2 trust-indicator opacity-0">
-              <CheckCircle class="w-5 h-5 text-gold" />
+              <CheckCircle class="w-5 h-5 text-gold shrink-0" />
               <span class="text-sm">Upfront, transparent pricing</span>
             </div>
             <div class="flex items-center space-x-2 trust-indicator opacity-0">
-              <CheckCircle class="w-5 h-5 text-gold" />
+              <CheckCircle class="w-5 h-5 text-gold shrink-0" />
               <span class="text-sm">Support & updates available</span>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+
     <!-- Wave Divider -->
     <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-0">
       <svg
