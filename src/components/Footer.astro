@@ -5,7 +5,7 @@ import { Mail, Phone, MapPin } from "lucide-astro";
 
 const currentYear = new Date().getFullYear();
 
-const navigationLinks = ["Home", "Services", "Pricing", "Process", "Contact"];
+const navigationLinks = ["Home", "Services", "Pricing", "Process", "Contact", "Connect"];
 const serviceLinks = [
   "Custom Website Design",
   "SEO & Performance",
@@ -84,7 +84,7 @@ const serviceLinks = [
                 navigationLinks.map((item) => (
                   <li>
                     <a
-                      href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+                      href={item === "Home" ? "/" : `/${item.toLowerCase()}/`}
                       class="text-slate-300 hover:text-teal transition-colors text-sm"
                     >
                       {item}
@@ -107,7 +107,7 @@ const serviceLinks = [
                 serviceLinks.map((item) => (
                   <li>
                     <a
-                      href="/services"
+                      href="/services/"
                       class="text-slate-300 hover:text-teal transition-colors text-sm"
                     >
                       {item}
@@ -160,7 +160,7 @@ const serviceLinks = [
         </p>
         <div class="flex space-x-3 mt-4 md:mt-0">
           <a
-            href="/legal/privacy-policy"
+            href="/legal/privacy-policy/"
             class="text-slate-400 hover:text-yellow-500 transition-colors"
             aria-label="Privacy Policy"
           >
@@ -168,7 +168,7 @@ const serviceLinks = [
           </a>
           <p class="text-slate-400">|</p>
           <a
-            href="/legal/terms-of-service"
+            href="/legal/terms-of-service/"
             class="text-slate-400 hover:text-yellow-500 transition-colors"
             aria-label="Terms of Service"
           >

@@ -4,7 +4,7 @@ import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   site: "https://www.docksideweb.com",
-  trailingSlash: 'ignore',
+  trailingSlash: 'always',
   output: "static",
   vite: {
     plugins: [tailwindcss()],
