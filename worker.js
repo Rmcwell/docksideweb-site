@@ -1,19 +1,26 @@
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    const pathname = url.pathname;
 
-    // 1. Check if it's a file (like .jpg, .css, .js) - don't add slash to these!
-    const isFile = pathname.includes('.');
-
-    // 2. If it's NOT a file and DOES NOT have a trailing slash, 301 redirect
-    if (!isFile && !pathname.endsWith('/') && pathname !== '') {
+    // 1. WWW to Non-WWW Redirect
+    // If the host starts with 'www.', redirect to the root domain
+    if (url.hostname.startsWith('www.')) {
       const newUrl = new URL(request.url);
-      newUrl.pathname = pathname + '/';
-      
+      newUrl.hostname = url.hostname.replace(/^www\./, '');
       return Response.redirect(newUrl.toString(), 301);
     }
 
+    const pathname = url.pathname;
+
+    // 2. Trailing Slash Logic (Your existing code)
+    const isFile = pathname.includes('.');
+    if (!isFile && !pathname.endsWith('/') && pathname !== '/') {
+      const newUrl = new URL(request.url);
+      newUrl.pathname = pathname + '/';
+      return Response.redirect(newUrl.toString(), 301);
+    }
+
+    // 3. Serve Assets
     return env.ASSETS.fetch(request);
   },
 };

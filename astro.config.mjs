@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://www.docksideweb.com",
+  site: "https://docksideweb.com",
   trailingSlash: 'always',
   output: "static",
   build: {
